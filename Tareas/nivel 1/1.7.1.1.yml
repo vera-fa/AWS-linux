@@ -1,0 +1,15 @@
+# 1.7.1.1 Asegúrese de que el mensaje del día esté configurado correctamente
+
+# / etc / motd es generado dinámicamente por pam al iniciar sesión. La intención de esta comprobación es garantizar que el sistema operativo
+# la información no se divulga, por lo tanto, la opción más apropiada es asegurarse de que los scripts que
+# generar motd, y que están relacionados con información del sistema que de otro modo sería
+# mostrado por las opciones mingetty, no están presentes.
+# En amazon linux, este es el script de 30 banners dentro de /etc/update-motd.d/
+- nombre : 1.7.1.1 - Asegúrese de que las opciones de mingetty no se utilicen dentro de motd
+  archivo :
+    ruta : " /etc/update-motd.d/30-banner "
+    estado : ausente
+  etiquetas :
+    - nivel-1
+    - 1.7.1.1
+    - puntuado
