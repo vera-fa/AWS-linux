@@ -1,0 +1,12 @@
+# 1.5.3 Asegúrese de que la aleatorización del diseño del espacio de direcciones (ASLR) esté habilitada
+
+- nombre : 1.5.3 - Asegúrese de que la aleatorización del diseño del espacio de direcciones esté habilitada
+  sysctl :
+    ignorar errores : sí
+    nombre : kernel.randomize_va_space
+    valor : 2
+    estado : presente
+  etiquetas :
+    - nivel-1
+    - " 1.5.3 "
+    - puntuado
