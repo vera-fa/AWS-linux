@@ -1,0 +1,9 @@
+# 1.1.18 Asegúrese de que el bit adhesivo esté configurado en todos los directorios de escritura mundial
+
+- nombre : 1.1.18 - Asegúrese de que el bit adhesivo esté configurado en todos los directorios de escritura mundial
+  shell : " df --local -P | awk {'if (NR! = 1) print $ 6'} | xargs -I '{}' find '{}' -xdev -type d -perm -0002 2> / dev / null | xargs chmod a + t "
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.18 "
+    - puntuado
