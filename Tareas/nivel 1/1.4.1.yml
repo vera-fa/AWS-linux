@@ -1,0 +1,23 @@
+# 1.4.1 Asegúrese de que los permisos en la configuración del cargador de arranque estén configurados
+
+- nombre : 1.4.1 - Compruebe si existe el archivo del cargador de arranque grub
+  estadística :
+    ruta : " {{cis_grub_bootloader_filename}} "
+  registro : grub_1_4_1
+  etiquetas :
+    - nivel-1
+    - " 1.4.1 "
+    - puntuado
+
+- nombre : 1.4.1 - Establecer permisos en la configuración de grub
+  archivo :
+    ruta : " {{cis_grub_bootloader_filename}} "
+    propietario : root
+    grupo : raíz
+    modo :   " og-rwx "
+    estado : archivo
+  cuando : grub_1_4_1.stat.exists
+  etiquetas :
+    - nivel-1
+    - " 1.4.1 "
+    - puntuado
