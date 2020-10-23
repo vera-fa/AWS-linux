@@ -1,0 +1,34 @@
+# 1.5.2 Asegúrese de que la compatibilidad con XD / NX esté habilitada
+
+- nombre : 1.5.2 - Compruebe si la compatibilidad con XD / NX está habilitada
+  shell : " dmesg | grep NX "
+  registro : dmesg_1_5_2
+  check_mode : no
+  cambiado_cuando : Falso
+  ignore_errors : verdadero
+  etiquetas :
+    - nivel-1
+    - " 1.5.2 "
+    - sin puntuar
+
+- nombre : 1.5.2 - Asegúrese de que la compatibilidad con XD / NX esté habilitada
+  fallar :
+    msg : " Asegúrese de que la compatibilidad con XD / NX esté habilitada " .
+  cuando :
+    - " Protección 'NX (Execute Disable): activa' no en dmesg_1_5_2.stdout "
+    - fail_on_manual_remediation_actions
+  etiquetas :
+    - nivel-1
+    - " 1.5.2 "
+    - sin puntuar
+
+- nombre : 1.5.2 - Asegúrese de que la compatibilidad con XD / NX esté habilitada
+  depurar :
+    msg : " *** ACCIÓN REQUERIDA *** Asegúrese de que la compatibilidad con XD / NX esté habilitada " .
+  cuando :
+    - " Protección 'NX (Execute Disable): activa' no en dmesg_1_5_2.stdout "
+    - no fail_on_manual_remediation_actions
+  etiquetas :
+    - nivel-1
+    - " 1.5.2 "
+    - sin puntuar
