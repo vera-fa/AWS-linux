@@ -1,0 +1,14 @@
+# 1.1.19 - Desactivar el montaje automático
+
+- nombre : 1.1.19 - Desactivar autofs
+  servicio :
+    nombre : autofs
+    habilitado : falso
+    estado : detenido
+  ignore_errors : verdadero
+  registro : autofs_result
+  fail_when : " autofs_result.failed y 'no se encontró servicio o herramienta para: autofs' no en autofs_result.msg "
+  etiquetas :
+    - nivel-1
+    - " 1.1.19 "
+    - puntuado
