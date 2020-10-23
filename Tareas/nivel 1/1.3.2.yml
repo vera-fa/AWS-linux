@@ -1,0 +1,28 @@
+# 1.3.2 - Asegúrese de que la integridad del sistema de archivos se verifique regularmente
+
+- nombre : 1.3.2 - Asegúrese de que cron esté instalado
+  mmm :
+    nombre : cronie
+    estado : presente
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.3.2 "
+    - puntuado
+
+- nombre : 1.3.2 - Cree una entrada cron para ejecutar la comprobación de integridad del sistema de archivos auxiliar con regularidad
+  cron :
+    nombre : " CIS 1.3.2 - Ejecutar control de integridad del sistema de archivos auxiliar "
+    usuario : " {{cis_aide_cron_user}} "
+    trabajo : " {{cis_aide_cron_job}} "
+    minuto : " {{cis_aide_cron_minute}} "
+    hora : " {{cis_aide_cron_hour}} "
+    día de la semana : " {{cis_aide_cron_dow}} "
+    día : " {{cis_aide_cron_dom}} "
+    mes : " {{cis_aide_cron_month}} "
+    estado : presente
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.3.2 "
+    - puntuado
