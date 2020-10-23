@@ -1,0 +1,31 @@
+# 1.4.2 - Asegúrese de que se requiera autenticación para el modo de usuario único
+
+- nombre : 1.4.2 - Compruebe si existe el archivo de inicio sysconfig
+  estadística :
+    ruta : " {{cis_sysconfig_init_filename}} "
+  registro : sysconfig_init_1_4_2
+  etiquetas :
+    - nivel-1
+    - " 1.4.2 "
+    - puntuado
+
+- nombre : 1.4.2 - Asegúrese de que se requiera autenticación para el modo de usuario único
+  copiar :
+    dest : " {{cis_sysconfig_init_filename}} "
+    contenido : " SINGLE = / sbin / sulogin \ n "
+  cuando : sysconfig_init_1_4_2.stat.exists no está definido o no sysconfig_init_1_4_2.stat.exists
+  etiquetas :
+    - nivel-1
+    - " 1.4.2 "
+    - puntuado
+
+- nombre : 1.4.2 - Asegúrese de que se requiera autenticación para el modo de usuario único
+  lineinfile :
+    dest : " {{cis_sysconfig_init_filename}} "
+    regexp : " ^ SINGLE = "
+    línea : " SINGLE = / sbin / sulogin "
+  cuando : sysconfig_init_1_4_2.stat.exists está definido y sysconfig_init_1_4_2.stat.exists
+  etiquetas :
+    - nivel-1
+    - " 1.4.2 "
+    - puntuado
