@@ -1,0 +1,34 @@
+# 1.1.1.7 - Asegúrese de que el montaje de sistemas de archivos udf esté deshabilitado
+
+- nombre : 1.1.1.7 - Compruebe si existe el archivo de configuración del modprobe CIS
+  estadística :
+    ruta : " {{cis_modprobe_conf_filename}} "
+  registro : modprobe_1_1_1_7
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.1.7 "
+    - puntuado
+
+- nombre : 1.1.1.7 - Asegúrese de que el montaje de sistemas de archivos udf esté deshabilitado
+  copiar :
+    dest : " {{cis_modprobe_conf_filename}} "
+    contenido : " instalar udf / bin / true \ n "
+  cuando : modprobe_1_1_1_7.stat.exists no está definido o no modprobe_1_1_1_7.stat.exists
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.1.7 "
+    - puntuado
+
+- nombre : 1.1.1.7 - Asegúrese de que el montaje de sistemas de archivos udf esté deshabilitado
+  lineinfile :
+    dest : " {{cis_modprobe_conf_filename}} "
+    regexp : " ^ instalar udf "
+    línea : " instalar udf / bin / true "
+  cuando : modprobe_1_1_1_7.stat.exists está definido y modprobe_1_1_1_7.stat.exists
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.1.7 "
+    - puntuado
