@@ -1,0 +1,17 @@
+
+# 1.1.2 Asegúrese de que exista una partición separada para / tmp (puntuado)
+
+- nombre : 1.1.2 - Asegúrese de que exista una partición separada para / tmp (puntuado)
+  montar :
+    nombre : " {{item.mountpoint}} "
+    estado : presente
+    fstype : " {{item.fstype}} "
+    src : " {{item.device}} "
+    opts : " {{item.opts}} "
+  with_items :
+    - {mountpoint: '/ tmp', dispositivo: 'tmpfs', fstype: 'tmpfs', opts: 'rw, nosuid, nodev, noexec, relatime'}
+  etiquetas :
+      - nivel-1
+      - sección-1
+      - " 1.1.2 "
+      - puntuado
