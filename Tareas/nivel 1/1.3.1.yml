@@ -1,0 +1,34 @@
+# 1.3.1 Asegúrese de que AIDE esté instalado
+
+- nombre : 1.3.1 - Asegúrese de que AIDE esté instalado
+  mmm :
+    nombre : ayudante
+    estado : presente
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.3.1 "
+    - puntuado
+
+- nombre : 1.3.1 - Compruebe que existe la base de datos de asistentes
+  estadística :
+    ruta : " {{cis_aide_database_filename}} "
+  registrarse : aide_1_3_1
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.3.1 "
+    - puntuado
+
+# Esperamos que 'aide --init' se haya ejecutado y la base de datos generada se haya movido
+- nombre : 1.3.1 - Asegúrese de que exista una base de datos de asistentes
+  comando : " {{item}} "
+  cuando : aide_1_3_1.stat.exists no está definido o no aide_1_3_1.stat.exists
+  with_items :
+    - " ayudante --init "
+    - " mv {{cis_aide_src_database_filename}} {{cis_aide_database_filename}} "
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.3.1 "
+    - puntuado
