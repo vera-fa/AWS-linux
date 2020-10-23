@@ -1,0 +1,17 @@
+# 1.1.12 Asegúrese de que exista una partición separada para / home (puntuado)
+
+- nombre : 1.1.12 Asegúrese de que exista una partición separada para / home (puntuado)
+  montar :
+    nombre : " {{item.mountpoint}} "
+    estado : presente
+    fstype : " {{item.fstype}} "
+    src : " {{item.device}} "
+  with_items :
+    - {punto de montaje: "{{cis_partition_mnt_home}}",
+       dispositivo : " {{cis_partition_dev_home}} " ,
+       fstype : " {{cis_partition_fs_home}} " }
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.11 "
+    - puntuado
