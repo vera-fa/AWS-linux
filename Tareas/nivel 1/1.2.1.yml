@@ -1,0 +1,10 @@
+# 1.2.1 - Asegúrese de que los repositorios del administrador de paquetes estén configurados
+
+# Las acciones de remediación para esta recomendación son específicas del sitio, por lo tanto, probamos que
+# La ejecución de 'yum repolist' no genera errores.
+- nombre : 1.2.1 - Verifique que los repositorios estén configurados correctamente
+  comando : yum repolist
+  etiquetas :
+    - nivel-1
+    - " 1.2.1 "
+    - puntuado
