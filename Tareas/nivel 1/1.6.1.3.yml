@@ -1,0 +1,11 @@
+# 1.6.1.3 Asegúrese de que la política de SELinux esté configurada (puntuada)
+
+- nombre : 1.6.1.3 Asegúrese de que la política de SELinux esté configurada (puntuada)
+  selinux :
+    política : dirigido
+    estado : hacer cumplir
+  etiquetas :
+      - nivel-1
+      - sección-1
+      - " 1.1.11 "
+      - puntuado
