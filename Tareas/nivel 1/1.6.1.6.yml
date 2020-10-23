@@ -1,0 +1,36 @@
+# 1.6.1.6 Asegúrese de que no existan demonios no confinados (puntuados)
+
+- nombre : 1.6.1.6 Asegúrese de que no existan demonios no confinados (puntuados)
+  secuencia de comandos : " {{role_path}} / files / audit_1.6.1.6.sh "
+  check_mode : no
+  cambiado_cuando : Falso
+  registro : audit_1_6_1_6
+  etiquetas :
+    - nivel-1
+    - sección-6
+    - " 1.6.1.6 "
+    - puntuado
+
+- nombre : 1.6.1.6 Asegúrese de que no existan demonios no confinados (puntuados)
+  fallar :
+    msg : " {{audit_1_6_1_6.stdout_lines}} "
+  cuando :
+    - audit_1_6_1_6.stdout_lines está definido y audit_1_6_1_6.stdout_lines | longitud> 0
+    - fail_on_manual_remediation_actions
+  etiquetas :
+    - nivel-1
+    - sección-6
+    - " 1.6.1.6 "
+    - puntuado
+
+- nombre : 1.6.1.6 Asegúrese de que no existan demonios no confinados (puntuados)
+  depurar :
+    msg : " *** ACCIÓN REQUERIDA *** {{audit_1_6_1_6.stdout}} "
+  cuando :
+    - audit_1_6_1_6.stdout_lines está definido y audit_1_6_1_6.stdout_lines | longitud> 0
+    - no fail_on_manual_remediation_actions
+  etiquetas :
+    - nivel-1
+    - sección-6
+    - " 1.6.1.6 "
+    - puntuado
