@@ -1,0 +1,34 @@
+1.1.1.4 - Asegúrese de que el montaje de sistemas de archivos hfs esté deshabilitado
+
+- nombre : 1.1.1.4 - Compruebe si existe el archivo de configuración del modprobe CIS
+  estadística :
+    ruta : " {{cis_modprobe_conf_filename}} "
+  registro : modprobe_1_1_1_4
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.1.4 "
+    - puntuado
+
+- nombre : 1.1.1.4 - Asegúrese de que el montaje de los sistemas de archivos hfs esté deshabilitado
+  copiar :
+    dest : " {{cis_modprobe_conf_filename}} "
+    contenido : " instalar hfs / bin / true \ n "
+  cuando : modprobe_1_1_1_4.stat.exists no está definido o no modprobe_1_1_1_4.stat.exists
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.1.4 "
+    - puntuado
+
+- nombre : 1.1.1.4 - Asegúrese de que el montaje de los sistemas de archivos hfs esté deshabilitado
+  lineinfile :
+    dest : " {{cis_modprobe_conf_filename}} "
+    regexp : " ^ instalar hfs \\ s + "
+    línea : " instalar hfs / bin / true "
+  cuando : modprobe_1_1_1_4.stat.exists está definido y modprobe_1_1_1_4.stat.exists
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.1.4 "
+    - puntuado
