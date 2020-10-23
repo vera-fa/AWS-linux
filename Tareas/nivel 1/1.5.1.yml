@@ -1,0 +1,44 @@
+# 1.5.1 Asegúrese de que los volcados de memoria estén restringidos
+
+- nombre : 1.5.1 - Compruebe si existe el archivo de límites de seguridad
+  estadística :
+    ruta : " {{cis_security_limits_filename}} "
+  registro : security_limits_1_5_1
+  etiquetas :
+    - nivel-1
+    - " 1.5.1 "
+    - puntuado
+
+- nombre : 1.5.1 - Asegúrese de que los volcados de memoria estén restringidos
+  copiar :
+    dest : " {{cis_security_limits_filename}} "
+    contenido : " * núcleo duro 0 \ n "
+  cuando : security_limits_1_5_1.stat.exists no está definido o no security_limits_1_5_1.stat.exists
+  etiquetas :
+    - nivel-1
+    - " 1.5.1 "
+    - puntuado
+
+- nombre : 1.5.1 - Asegúrese de que los volcados de memoria estén restringidos
+  pam_limits :
+    dest : " {{cis_security_limits_filename}} "
+    limit_item : " núcleo "
+    limit_type : " difícil "
+    dominio : " * "
+    valor : " 0 "
+  cuando : security_limits_1_5_1.stat.exists está definido y security_limits_1_5_1.stat.exists
+  etiquetas :
+    - nivel-1
+    - " 1.5.1 "
+    - puntuado
+
+- nombre : 1.5.1 - Evita que los programas suid vuelquen el núcleo
+  sysctl :
+    ignorar errores : sí
+    nombre : fs.suid_dumpable
+    valor : 0
+    estado : presente
+  etiquetas :
+    - nivel-1
+    - " 1.5.1 "
+    - puntuado
