@@ -1,0 +1,27 @@
+# 1.5.4 Asegúrese de que el prevínculo esté deshabilitado
+
+- nombre : compruebe si existe el binario prelink
+  comando : que preenlace
+  ignore_errors : verdadero
+  registro : which_1_5_4
+  etiquetas :
+    - nivel-1
+    - " 1.5.4 "
+    - puntuado
+
+- nombre : Restaura los binarios preenlazados
+  comando : prelink -ua
+  cuándo : cuál_1_5_4.rc está definido y cuál_1_5_4.rc == 0
+  etiquetas :
+    - nivel-1
+    - " 1.5.4 "
+    - puntuado
+
+- nombre : asegúrese de que el enlace previo esté deshabilitado
+  mmm :
+    nombre : prelink
+    estado : ausente
+  etiquetas :
+    - nivel-1
+    - " 1.5.4 "
+    - puntuado
