@@ -1,0 +1,10 @@
+# 1.2.2 Asegúrese de que las claves GPG estén configuradas
+
+# Las acciones de remediación para esta recomendación son específicas del sitio, por lo tanto, probamos que
+# la ejecución del comando rpm especificado no genera errores.
+- nombre : 1.2.2 - Asegúrese de que las claves GPG estén configuradas
+  shell : rpm -q gpg-pubkey --qf '% {nombre} -% {versión} -% {versión} ->% {resumen} \ n'
+  etiquetas :
+    - nivel-1
+    - " 1.2.2 "
+    - puntuado
