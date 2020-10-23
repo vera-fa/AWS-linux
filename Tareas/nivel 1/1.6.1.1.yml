@@ -1,0 +1,21 @@
+# 1.6.1.1 Asegúrese de que SELinux no esté deshabilitado en la configuración del cargador de arranque (puntuado)
+
+- nombre : instale los requisitos de SE Linux - libselinux-python
+  mmm :
+    nombre : libselinux-python
+    estado : instalado
+
+- nombre : instale los requisitos de SE Linux - policycoreutils-python
+  mmm :
+    nombre : policycoreutils-python
+    estado : instalado
+
+- nombre : 1.6.1.1 Asegúrese de que SELinux no esté deshabilitado en la configuración del cargador de arranque (puntuado)
+  selinux :
+    política : dirigido
+    estado : hacer cumplir
+  etiquetas :
+      - nivel-1
+      - sección-1
+      - " 1.1.11 "
+      - puntuado
