@@ -1,0 +1,32 @@
+# 1.2.3 - Asegúrese de que gpgcheck esté activado globalmente
+
+- nombre : 1.2.3 - Obtener todos los repositorios en el host remoto
+  encontrar :
+    rutas : " /etc/yum.repos.d "
+    patrón : " * .repo "
+  registrarse : yum_repos
+  etiquetas :
+    - nivel-1
+    - " 1.2.3 "
+    - puntuado
+
+- nombre : 1.2.3 - Verifique que gpgcheck esté habilitado en /etc/yum.conf
+  lineinfile :
+    regexp : " ^ gpgcheck "
+    línea : " gpgcheck = 1 "
+    dest : " /etc/yum.conf "
+  etiquetas :
+    - nivel-1
+    - " 1.2.3 "
+    - puntuado
+
+- nombre : 1.2.3 - Verifique que gpgcheck esté habilitado para todos los repositorios en /etc/yum.repos.d
+  reemplazar :
+    regexp : " ^ gpgcheck = 0 "
+    reemplazar : " gpgcheck = 1 "
+    dest : " {{item.path}} "
+  with_items : " {{yum_repos.files}} "
+  etiquetas :
+    - nivel-1
+    - " 1.2.3 "
+    - puntuado
