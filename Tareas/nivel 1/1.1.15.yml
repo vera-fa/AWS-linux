@@ -1,0 +1,23 @@
+# 1.1.15 Asegúrese de que la opción nodev esté configurada en la partición / dev / shm
+
+- incluir : all_mounts_facts.yml
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.15 "
+    - puntuado
+
+- nombre : 1.1.15 - Asegúrese de que la opción nodev esté configurada en la partición / dev / shm
+  montar :
+    nombre : " {{item.mount}} "
+    estado : montado
+    fstype : " {{item.fstype}} "
+    src : " {{item.device}} "
+    opts : " {{item.options.split (',') | union (['nodev']) | join (',')}} "
+  cuando : item.mount == '/ dev / shm'
+  with_items : " {{all_mounts.stdout | predeterminado ('{}') | from_json}} "
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.15 "
+    - puntuado
