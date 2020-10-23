@@ -1,0 +1,15 @@
+# 1.1.11 Asegúrese de que exista una partición separada para / var / log / audit (puntuado)
+
+- nombre : 1.1.11 Asegúrese de que exista una partición separada para / var / log / audit (puntuado)
+  montar :
+    nombre : " {{item.mountpoint}} "
+    estado : presente
+    fstype : " {{item.fstype}} "
+    src : " {{item.device}} "
+  with_items :
+    - {punto de montaje: "{{cis_partition_mnt_val_log_audit}}", dispositivo: "{{cis_partition_dev_val_log_audit}}", fstype: "{{cis_partition_fs_val_log_audit}}"}
+  etiquetas :
+      - nivel-1
+      - sección-1
+      - " 1.1.11 "
+      - puntuado
