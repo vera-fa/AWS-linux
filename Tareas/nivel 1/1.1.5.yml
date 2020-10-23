@@ -1,0 +1,16 @@
+# 1.1.5 Asegúrese de que la opción noexec esté configurada en la partición / tmp
+
+- nombre : 1.1.5 - Asegúrese de que la opción noexec esté configurada en la partición / tmp
+  montar :
+    nombre : " {{item.mount}} "
+    estado : montado
+    fstype : " {{item.fstype}} "
+    src : " {{item.device}} "
+    opts : " {{item.options.split (',') | union (['noexec']) | join (',')}} "
+  cuando : item.mount == '/ tmp'
+  with_items : " {{ansible_mounts}} "
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.5 "
+    - puntuado
