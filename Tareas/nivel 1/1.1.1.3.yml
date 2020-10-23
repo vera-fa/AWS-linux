@@ -1,0 +1,34 @@
+1.1.1.3 - Asegúrese de que el montaje de los sistemas de archivos jffs2 esté deshabilitado
+
+- nombre : 1.1.1.3 - Compruebe si existe el archivo de configuración del modprobe CIS
+  estadística :
+    ruta : " {{cis_modprobe_conf_filename}} "
+  registro : modprobe_1_1_1_3
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.1.3 "
+    - puntuado
+
+- nombre : 1.1.1.3 - Asegúrese de que el montaje de los sistemas de archivos jffs2 esté deshabilitado
+  copiar :
+    dest : " {{cis_modprobe_conf_filename}} "
+    contenido : " instalar jffs2 / bin / true \ n "
+  cuando : modprobe_1_1_1_3.stat.exists no está definido o no modprobe_1_1_1_3.stat.exists
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.1.3 "
+    - puntuado
+
+- nombre : 1.1.1.3 - Asegúrese de que el montaje de los sistemas de archivos jffs2 esté deshabilitado
+  lineinfile :
+    dest : " {{cis_modprobe_conf_filename}} "
+    regexp : " ^ install jffs2 "
+    línea : " instalar jffs2 / bin / true "
+  cuando : modprobe_1_1_1_3.stat.exists está definido y modprobe_1_1_1_3.stat.exists
+  etiquetas :
+    - nivel-1
+    - sección-1
+    - " 1.1.1.3 "
+    - puntuado
