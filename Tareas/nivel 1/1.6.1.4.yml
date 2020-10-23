@@ -1,0 +1,11 @@
+# 1.6.1.4 Asegúrese de que SETroubleshoot no esté instalado (puntuado)
+
+- nombre : 1.6.1.4 Asegúrese de que SETroubleshoot no esté instalado (puntuado)
+  mmm :
+    nombre : setroubleshoot
+    estado : eliminado
+  etiquetas :
+      - nivel-1
+      - sección-1
+      - " 1.1.11 "
+      - puntuado
